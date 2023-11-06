@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, lib, config, ... }:
 {
   nix = {
     settings = {
@@ -14,7 +14,7 @@
       # Keep the last 3 generations
       options = "--delete-older-than +3";
     };
-    
+
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
