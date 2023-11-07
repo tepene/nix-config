@@ -19,6 +19,7 @@
 
     # Global configurations
     ../common/nix.nix
+    ../common/hyperland.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -58,9 +59,9 @@
   boot.loader.grub.useOSProber = true;
 
   # Gnome
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Users
   users.users = {
