@@ -19,6 +19,7 @@
 
     # Global configurations
     ../common/nix.nix
+    ../common/gnome.nix
     ## not ready yet, need further testing and configuration
     # ../common/hyperland.nix
 
@@ -58,11 +59,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
-
-  # Gnome
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
 
   # Users
   users.users = {
