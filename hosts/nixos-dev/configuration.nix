@@ -19,7 +19,8 @@
 
     # Global configurations
     ../common/nix.nix
-    ../common/hyperland.nix
+    ## not ready yet, need further testing and configuration
+    # ../common/hyperland.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
