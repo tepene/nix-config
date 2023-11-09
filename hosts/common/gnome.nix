@@ -15,6 +15,6 @@
         # Fonts
         pkgs.nerdfonts
         # Gnome Extenstions
-        gnomeExtensions.dash-to-dock
+        # gnomeExtensions.dash-to-dock
     ];
 }
