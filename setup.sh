@@ -105,8 +105,8 @@ mount -o subvol=log,compress=zstd,noatime /dev/mapper/lvm-nixos /mnt/var/log
 mount ${PARTITION_BOOT} /mnt/boot
 echo ""
 
-# Create NixOS hardware configuration
-echo -e "${YELLOW}Creating NixOS hardware configuration${ENDCOLOR}"
+# Create NixOS configuration
+echo -e "${YELLOW}Creating NixOS configuration${ENDCOLOR}"
 nixos-generate-config --root /mnt
 
 # Fixing generated config
