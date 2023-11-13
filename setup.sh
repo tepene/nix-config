@@ -118,7 +118,7 @@ sed -i '/options = \[ "subvol=log" "compress=zstd" "noatime" \];/ s/];/&\n      
 ## Load LUKS encrypted volume
 sed -i "/^ *boot.initrd.kernelModules/ a \  boot.initrd.luks.devices.\"system\".device = \"/dev/disk/by-uuid/$UUID_DISK_SYSTEM\";" ${NIXOS_HW_CONFIG}
 ## Add swap device
-sed -i "/^  swapDevices = \[/,/^\s*];/ s~^\s*];~  [ { device = \"/dev/disk/by-uuid/$UUID_DISK_BOOT\"; } ];~" ${NIXOS_HW_CONFIG}
+sed -i "s/^  swapDevices = \[\];/  swapDevices = [ { device = \"\/dev\/disk\/by-uuid\/$UUID_DISK_BOOT\"; } ];/" ${NIXOS_HW_CONFIG}
 echo ""
 
 # Replacing OS configuration
