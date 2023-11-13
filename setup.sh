@@ -115,7 +115,7 @@ NIXOS_LVM_UUID=$(blkid | grep /dev/mapper/lvm-nixos | awk -F' ' '{print $2}' | c
 NIXOS_HW_CONFIG="/mnt/etc/nixos/hardware-configuration.nix"
 sed -i '/^ *options = \[/ s/];/"compress=zstd" "noatime" ];/ ' ${NIXOS_HW_CONFIG}
 sed -i '/options = \[ "subvol=log" "compress=zstd" "noatime" \];/ s/];/&\n      neededForBoot = true;/' ${NIXOS_HW_CONFIG}
-sed -i '/^boot.initrd/ {N; /boot.initrd/!b a; s/.*/&\n  boot.initrd.luks.devices.\"enc\".device = \"\/dev\/disk\/by-uuid\/${NIXOS_LVM_UUID}\";}' "${NIXOS_HW_CONFIG}"
+sed -i -e "/^boot.initrd/ {N; /boot.initrd/!b a;}" -e "s/.*/&\n  boot.initrd.luks.devices.\"enc\".device = \"\/dev\/disk\/by-uuid\/${NIXOS_LVM_UUID}\";" "${NIXOS_HW_CONFIG}"
 echo ""
 
 # Finish
