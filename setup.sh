@@ -36,7 +36,7 @@ PARTITION_SYSTEM=${DISK_PATH}2
 read -p "Enter size for swap partition (default: ${DEFAULT_SWAP_SIZE}): " SWAP_SIZE
 SWAP_SIZE=${SWAP_SIZE:-$DEFAULT_SWAP_SIZE}
 read -p "Enter desired hostname (default: ${DEFAULT_HOSTNAME}): " HOSTNAME
-HOSTNAME=${SWAP_SIZE:-$DEFAULT_HOSTNAME}
+HOSTNAME=${HOSTNAME:-$DEFAULT_HOSTNAME}
 read -s -p "Enter password for disk encryption (default: ${DEFAULT_PASSWORD}): " PASSWORD
 PASSWORD=${PASSWORD:-$DEFAULT_PASSWORD}
 echo ""
