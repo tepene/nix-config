@@ -25,7 +25,7 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland,
+    # hyprland,
     ...
   } @ inputs: let
     inherit (self) outputs;
