@@ -101,6 +101,7 @@ echo ""
 # Create NixOS configuration
 echo -e "${YELLOW}Creating NixOS configuration${ENDCOLOR}"
 nixos-generate-config --root /mnt
+echo ""
 
 # Fixing generated Hardware configuration
 echo -e "${YELLOW}Fixing generated hardware-configuration.nix...${ENDCOLOR}"
