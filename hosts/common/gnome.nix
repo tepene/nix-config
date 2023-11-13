@@ -17,6 +17,7 @@
     # System packages
     environment.systemPackages = [
         # Basic Packages
+        pkgs.dconf
         pkgs.gnome.gedit
         pkgs.kitty
         pkgs.nano
