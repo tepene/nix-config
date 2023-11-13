@@ -10,14 +10,12 @@
     qt.platformTheme = "gtk2";
     qt.style = "gtk2";
 
-    # dConf | https://gvolpe.com/blog/gnome3-on-nixos/
-    dbus.packages = [ pkgs.gnome3.dconf ];
-    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+    # dConf | https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+    programs.dconf.enable = true;
 
     # System packages
     environment.systemPackages = [
         # Basic Packages
-        pkgs.dconf
         pkgs.gnome.gedit
         pkgs.kitty
         pkgs.nano
