@@ -108,7 +108,7 @@ echo ""
 
 # Fixing generated Hardware configuration
 echo -e "${YELLOW}Fixing generated hardware-configuration.nix...${ENDCOLOR}"
-UUID_DISK_BOOT=$(blkid | grep ${PARTITION_BOOT} | awk -F' ' '{gsub(/"/, "", $2); print $2}' | cut -d '=' -f 2 -s)
+UUID_DISK_SWAP=$(blkid | grep /dev/mapper/lvm-swap | awk -F' ' '{gsub(/"/, "", $2); print $2}' | cut -d '=' -f 2 -s)
 UUID_DISK_SYSTEM=$(blkid | grep ${PARTITION_SYSTEM} | awk -F' ' '{gsub(/"/, "", $2); print $2}' | cut -d '=' -f 2 -s)
 NIXOS_HW_CONFIG="/mnt/etc/nixos/hardware-configuration.nix"
 ## Set btrfs parameters
@@ -118,7 +118,7 @@ sed -i '/options = \[ "subvol=log" "compress=zstd" "noatime" \];/ s/];/&\n      
 ## Load LUKS encrypted volume
 sed -i "/^ *boot.initrd.kernelModules/ a \  boot.initrd.luks.devices.\"system\".device = \"/dev/disk/by-uuid/$UUID_DISK_SYSTEM\";" ${NIXOS_HW_CONFIG}
 ## Add swap device
-sed -i "s/^  swapDevices = \[\];/  swapDevices = [ { device = \"\/dev\/disk\/by-uuid\/$UUID_DISK_BOOT\"; } ];/" ${NIXOS_HW_CONFIG}
+sed -i "s/^  swapDevices = .*/  swapDevices = [ { device = \"\/dev\/disk\/by-uuid\/$UUID_DISK_SWAP\"; } ];/" ${NIXOS_HW_CONFIG}
 echo ""
 
 # Replacing OS configuration
