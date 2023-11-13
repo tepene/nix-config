@@ -69,6 +69,12 @@
         }/bin/git-credential-libsecret";
     };
   };
+  # ohMyZsh | https://nixos.org/manual/nixos/stable/#module-programs-oh-my-zsh-usage
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    plugins = [ "git" "python" "man" ];
+    theme = "agnoster";
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

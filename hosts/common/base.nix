@@ -32,11 +32,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Flatpak | https://nixos.org/manual/nixos/stable/#module-services-flatpak
+  services.flatpak.enable = true;
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
     home-manager
     just
+    podman
+    podman-compose
+    podman-desktop
+    zsh
   ];
 }
