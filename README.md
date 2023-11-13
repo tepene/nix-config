@@ -5,7 +5,7 @@
 1. Boot with minimal ISO
 2. Change to root  
    `sudo -i`
-3. Change keyboard layout  
+3. (Optional) Change keyboard layout to your liking  
    `loadkeys de_CH-latin1`
 4. Install git  
    `nix-shell -p git`
@@ -13,3 +13,5 @@
    `git clone https://github.com/tepene/nix-config.git`
 6. Run setup script  
    `cd ./nix-config && ./setup.sh`
+7. Reboot system  
+   `reboot`
