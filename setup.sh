@@ -109,8 +109,8 @@ echo ""
 echo -e "${YELLOW}Creating NixOS configuration${ENDCOLOR}"
 nixos-generate-config --root /mnt
 
-# Fixing generated config
-echo -e "${YELLOW}Add correct file system option on hardware-configuration.nix${ENDCOLOR}"
+# Fixing generated Hardware configuration
+echo -e "${YELLOW}Fixing generated hardware-configuration.nix...${ENDCOLOR}"
 NIXOS_LVM_UUID=$(blkid | grep ${PARTITION_SYSTEM} | awk -F' ' '{gsub(/"/, "", $2); print $2}' | cut -d '=' -f 2 -s)
 NIXOS_HW_CONFIG="/mnt/etc/nixos/hardware-configuration.nix"
 sed -i '/^ *options = \[/ s/];/"compress=zstd" "noatime" ];/ ' ${NIXOS_HW_CONFIG}
@@ -118,6 +118,16 @@ sed -i '/options = \[ "subvol=log" "compress=zstd" "noatime" \];/ s/];/&\n      
 sed -i "/^ *boot.initrd.kernelModules/ a \  boot.initrd.luks.devices.\"system\".device = \"/dev/disk/by-uuid/$NIXOS_LVM_UUID\";" ${NIXOS_HW_CONFIG}
 echo ""
 
+# Replacing OS configuration
+echo -e "${YELLOW}Replacing generated configuration.nix...${ENDCOLOR}"
+NIXOS_CONFIG="/mnt/etc/nixos/configuration.nix"
+cp -f ./hosts/init_configuration.nix ${NIXOS_CONFIG}
+echo ""
+
+# Install NixOS
+echo -e "${YELLOW}Installing NixOS${ENDCOLOR}"
+nixos-install
+echo ""
+
 # Finish
 echo -e "${GREEN}DONE${ENDCOLOR}"
-echo ""
