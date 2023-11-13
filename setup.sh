@@ -111,7 +111,7 @@ nixos-generate-config --root /mnt
 # Fixing generated config
 echo -e "${YELLOW}Add correct file system option on hardware-configuration.nix${ENDCOLOR}"
 sed -i '/^ *options = \[/ s/];/"compress=zstd" "noatime" ];/ ' /mnt/etc/nixos/hardware-configuration.nix
-awk '/^ *fileSystems."\/var\/log" =/ {block=1} block && /^ *options = \[/ {print; print "      neededForBoot = true;"; block=0; next} {print}' /mnt/etc/nixos/hardware-configuration.nix
+sed '/^ *fileSystems."\/var\/log" =/,/^ *};/ s/options = \[/&\n      neededForBoot = true;/' /mnt/etc/nixos/hardware-configuration.nix
 echo ""
 
 # Finish
