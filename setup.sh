@@ -44,6 +44,7 @@ SWAP_SIZE=${SWAP_SIZE:-$DEFAULT_SWAP_SIZE}
 read -s -p "Enter password for disk encryption (default: ${DEFAULT_PASSWORD}): " PASSWORD
 PASSWORD=${PASSWORD:-$DEFAULT_PASSWORD}
 echo ""
+echo ""
 
 # Erase disk
 echo -e "${YELLOW}Erasing disk ${DISK_PATH}${ENDCOLOR}"
