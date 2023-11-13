@@ -41,6 +41,7 @@
     git
     home-manager
     just
+    nano
     podman
     podman-compose
     podman-desktop

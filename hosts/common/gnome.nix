@@ -14,17 +14,15 @@
     programs.dconf.enable = true;
 
     # System packages
-    environment.systemPackages = [
+    environment.systemPackages = with pkgs; [
         # Basic Packages
-        pkgs.gnome.gedit
-        pkgs.kitty
-        pkgs.nano
+        gnome.gedit
+        kitty
         # Themes
-        pkgs.yaru-theme
+        yaru-theme
         # Fonts
         pkgs.nerdfonts
         # Gnome Extenstions
-        pkgs.gnome3.gnome-tweak-tool
-        # gnomeExtensions.dash-to-dock
+        gnome.gnome-tweaks
     ];
 }
