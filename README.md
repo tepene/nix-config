@@ -7,7 +7,7 @@
    `sudo -i`
 3. Change keyboard layout  
    `loadkeys de_CH-latin1`
-4. Install git
+4. Install git  
    `nix-shell -p git`
 5. Clone NixOS configuration repository  
    `git clone https://github.com/tepene/nix-config.git`
