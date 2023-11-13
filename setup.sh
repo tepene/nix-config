@@ -4,7 +4,7 @@
 cat <<EOM
 setup.sh
 ==================================================================
-This script partitions and encrypts your disks for a NixOS install
+This script partitions and encrypts your disk and installs NixOS
 with Opt-in persistence through impermanence & blank snapshotting
 ==================================================================
 EOM
@@ -14,6 +14,7 @@ DEFAULT_DISK_PATH="/dev/vda"
 DEFAULT_SWAP_SIZE=$(free -h | awk '/^Mem:/ {print $2}' | sed 's/i//')
 DEFAULT_HYBERNATE="true"
 DEFAULT_PASSWORD="password"
+DEFAULT_HOSTNAME="nixos-dev"
 
 # Bash colors
 RED="\e[31m"
@@ -34,6 +35,8 @@ PARTITION_BOOT=${DISK_PATH}1
 PARTITION_SYSTEM=${DISK_PATH}2
 read -p "Enter size for swap partition (default: ${DEFAULT_SWAP_SIZE}): " SWAP_SIZE
 SWAP_SIZE=${SWAP_SIZE:-$DEFAULT_SWAP_SIZE}
+read -p "Enter desired hostname (default: ${DEFAULT_HOSTNAME}): " HOSTNAME
+HOSTNAME=${SWAP_SIZE:-$DEFAULT_HOSTNAME}
 read -s -p "Enter password for disk encryption (default: ${DEFAULT_PASSWORD}): " PASSWORD
 PASSWORD=${PASSWORD:-$DEFAULT_PASSWORD}
 echo ""
@@ -116,6 +119,7 @@ echo ""
 echo -e "${YELLOW}Replacing generated configuration.nix...${ENDCOLOR}"
 NIXOS_CONFIG="/mnt/etc/nixos/configuration.nix"
 cp -f ./hosts/init_configuration.nix ${NIXOS_CONFIG}
+sed -i "s/networking.hostName = .*/networking.hostName = \"$HOSTNAME\"/" ${NIXOS_CONFIG}
 echo ""
 
 # Install NixOS
