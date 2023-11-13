@@ -39,7 +39,7 @@ Once NixOS is running the final configurations can be applied with these instruc
 
 ## Credits
 
-My NixOS configuration based on and greatly inspired by:
+My NixOS configuration is based on and greatly inspired by:
 
 - [Nix Starter Config](https://github.com/Misterio77/nix-starter-configs)
 - [misterio77/nix-config](https://github.com/misterio77/nix-config)
