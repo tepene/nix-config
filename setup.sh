@@ -10,7 +10,6 @@ with Opt-in persistence through impermanence & blank snapshotting
 EOM
 
 # Script default variables
-DEFAULT_KEYBOARD_LAYOUT="de_CH-latin1"
 DEFAULT_DISK_PATH="/dev/vda"
 DEFAULT_SWAP_SIZE=$(free -h | awk '/^Mem:/ {print $2}' | sed 's/i//')
 DEFAULT_HYBERNATE="true"
@@ -21,12 +20,6 @@ RED="\e[31m"
 YELLOW="\e[33m"
 GREEN="\e[32m"
 ENDCOLOR="\e[0m"
-
-# Load local keyboard layout
-echo ""
-echo -e "${YELLOW}Changing keyboard layout to ${DEFAULT_KEYBOARD_LAYOUT}${ENDCOLOR}"
-loadkeys ${DEFAULT_KEYBOARD_LAYOUT}
-echo ""
 
 # Display available disks
 echo -e "${YELLOW}Checking for available disks${ENDCOLOR}"
