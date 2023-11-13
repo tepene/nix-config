@@ -18,6 +18,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Global configurations
+    ../common/base.nix
     ../common/nix.nix
     ../common/gnome.nix
     ## not ready yet, need further testing and configuration
