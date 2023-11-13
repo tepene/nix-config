@@ -119,7 +119,7 @@ echo ""
 echo -e "${YELLOW}Replacing generated configuration.nix...${ENDCOLOR}"
 NIXOS_CONFIG="/mnt/etc/nixos/configuration.nix"
 cp -f ./hosts/init_configuration.nix ${NIXOS_CONFIG}
-sed -i "s/networking.hostName = .*/networking.hostName = \"$HOSTNAME\"/" ${NIXOS_CONFIG}
+sed -i "s/networking.hostName = .*/networking.hostName = \"$HOSTNAME\";/" ${NIXOS_CONFIG}
 echo ""
 
 # Install NixOS
