@@ -13,7 +13,7 @@ EOM
 DEFAULT_DISK_PATH="/dev/vda"
 DEFAULT_SWAP_SIZE=$(free -h | awk '/^Mem:/ {print $2}' | sed 's/i//')
 DEFAULT_HYBERNATE="true"
-DEFAULT_PASSWORD="password"
+DEFAULT_PASSWORD="changeme"
 DEFAULT_HOSTNAME="nixos-dev"
 
 # Bash colors
