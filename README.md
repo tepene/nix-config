@@ -12,4 +12,4 @@
 5. Clone NixOS configuration repository  
    `git clone https://github.com/tepene/nix-config.git`
 6. Run setup script  
-   `./setup.sh`
+   `cd ./nix-config && ./setup.sh`
