@@ -78,7 +78,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       esbenp.prettier-vscode
-      GitLab.gitlab-workflow
+      # GitLab.gitlab-workflow
       johnpapa.vscode-peacock
       ms-vscode-remote.vscode-remote-extensionpack
     ];

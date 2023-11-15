@@ -38,14 +38,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    btop
     git
     home-manager
     just
     nano
-    btop
     podman
     podman-compose
-    zsh
     syncthing
+    zsh
   ];
 }
