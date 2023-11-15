@@ -76,12 +76,19 @@
   # VScode
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      esbenp.prettier-vscode
-      # GitLab.gitlab-workflow
+    extensions = [
+      GitLab.gitlab-workflow
       johnpapa.vscode-peacock
       ms-vscode-remote.vscode-remote-extensionpack
+      pkgs.vscode-extensions.bbenoist.nix
+      sbenp.prettier-vscode
     ];
+    # extensions = with pkgs.vscode-extensions; [
+    #   esbenp.prettier-vscode
+    #   # GitLab.gitlab-workflow
+    #   johnpapa.vscode-peacock
+    #   ms-vscode-remote.vscode-remote-extensionpack
+    # ];
   };
   # ohMyZsh | https://nixos.org/manual/nixos/stable/#module-programs-oh-my-zsh-usage
   # programs.zsh.ohMyZsh = {
