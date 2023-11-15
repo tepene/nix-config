@@ -44,7 +44,6 @@
     nano
     podman
     podman-compose
-    podman-desktop
     zsh
   ];
 }
