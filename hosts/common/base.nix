@@ -42,8 +42,10 @@
     home-manager
     just
     nano
+    btop
     podman
     podman-compose
     zsh
+    syncthing
   ];
 }

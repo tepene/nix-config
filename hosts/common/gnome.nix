@@ -17,6 +17,10 @@
     environment.systemPackages = with pkgs; [
         # Basic Packages
         gnome.gedit
+        gnome.nautilus
+        gnome.gnome-calculator
+        celluloid
+        remmina
         kitty
         # Themes
         yaru-theme
