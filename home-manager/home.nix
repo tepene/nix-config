@@ -6,7 +6,7 @@
   lib,
   config,
   pkgs,
-  pkgs.vscode-extensions,
+  vscode-extensions,
   ...
 }: {
   # You can import other home-manager modules here
