@@ -77,11 +77,11 @@
   programs.vscode = {
     enable = true;
     extensions = [
-      GitLab.gitlab-workflow
-      johnpapa.vscode-peacock
-      ms-vscode-remote.vscode-remote-extensionpack
+      pkgs.GitLab.gitlab-workflow
+      pkgs.johnpapa.vscode-peacock
+      pkgs.ms-vscode-remote.vscode-remote-extensionpack
       pkgs.vscode-extensions.bbenoist.nix
-      sbenp.prettier-vscode
+      pkgs.sbenp.prettier-vscode
     ];
     # extensions = with pkgs.vscode-extensions; [
     #   esbenp.prettier-vscode
