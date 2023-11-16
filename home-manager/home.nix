@@ -22,6 +22,10 @@
     # ./nvim.nix
   ];
 
+  extraSpecialArgs = {
+    inherit inputs lib;
+  };
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
